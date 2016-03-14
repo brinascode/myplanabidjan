@@ -1,0 +1,51 @@
+body{
+
+background-image:url("../images/indexback.jpeg");
+background-size:100%;
+background-repeat:no-repeat;
+
+}
+
+.up li{
+list-style-type:none;
+display:inline-block;
+color:white;
+font-size:40px;
+margin-left:20px;
+font-family:sans-serif;
+}
+.up li:hover{
+opacity:0.5;
+}
+
+.up li a{
+list-style-type:none;
+display:inline-block;
+color:white;
+font-size:40px;
+margin-left:20px;
+font-family:sans-serif;
+text-decoration:none;
+}
+.up li a:hover{
+opacity:0.5;
+}
+
+.up{
+text-align:right;
+}
+
+.entrez{
+font-family:Script MT Bold;
+font-size:30px;
+margin-left:200px;
+margin-top:-100px;
+COLOR:black;
+}
+
+.jeveutA{
+border:solid;
+border-radius:100vw;
+width:10vw;
+height:10vw;
+}

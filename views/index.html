@@ -1,0 +1,118 @@
+<!Doctype>
+<html>
+
+<head>
+	<title>My Plan Abidjan!</title>
+
+    <meta content="text/html; charset=UTF-8" />
+	
+<!-- This is needed for angular ui -->
+<link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+<script src="javascripts/angular.min.js"></script>
+<script src="javascripts/angular-route.min.js"></script>
+
+<!-- This is being used by the carousel-->
+<script src="javascripts/jquery.js"></script>
+<script src="javascripts/bootstrap.js"></script>
+
+<script src="javascripts/module.js"></script>
+<script src="javascripts/controllers/Restaurants.js"></script>
+<script src="javascripts/controllers/Magasins.js"></script>
+<script src="javascripts/controllers/Funs.js"></script>
+
+
+
+<base href="/">
+
+
+<style>
+body{
+background-image:url('../images/back.jpg');
+background-size:100%;
+background-repeat:no-repeat;
+background-color: white;
+
+}
+
+.opac:hover{
+opacity:0.6;
+}
+
+a{
+text-decoration:none;
+color:black;
+}
+
+.indexBox{
+background-color: rgba(81,80,80,0.3);
+height:33%;
+background-repeat:no-repeat;
+background-position:center;
+color: white;
+
+}
+
+.indexH1{
+font-size:170%;
+font-family:Lucida Sans;
+}
+
+</style>
+</head>
+
+<body ng-app="MyPlanAbidjan">
+
+<div >
+	<!-- Our logo pic -->
+<img src="/images/logo.png" width="45%"/>
+
+
+<!-- The icon boxes-->
+<div class="row" style="margin-TOP:-4vw;" >					
+
+<a href="restaurants" href="anchor">
+<div class="col-sm-4 opac indexBox" 
+style="background-image:url('../images/food2e.png');" >
+<center><h1 class="indexH1">Nourriture</h1></center></div>
+</a>
+
+<a href="magasinsetsoins">
+<div class="col-sm-4 opac indexBox" 
+style="background-image:url('../images/shopIcon.png');
+background-size:40%;">
+<center><h1 class="indexH1">Shopping</h1></center></div>
+</a</a>
+
+<a href="fun">
+<div class="col-sm-4 opac indexBox" 
+style="background-image:url('../images/micro.png');
+background-size:40%;">
+<center><h1 class="indexH1">Fun et divers</h1></center></div>
+</a>
+
+
+<!-- Our angular view to load routes -->
+<div ng-view class="col-sm-12"></div>	
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+</html>

@@ -1,0 +1,116 @@
+</br>
+
+<div ng-hide="searchHidden" style="background-color:;background-size:100%;height:45vw;margin:3vw">
+<center > <h1 class="indexH1" style='color:black;font-size:7vw'>Magasins et Soins</H1 > </center >
+
+
+<div class="row" style="background-color:white"> 
+
+					<!-- Our first column for the search -->
+			<div class="col-sm-6 form-group " style="margin-left:1.5vw"> 
+ 
+ <h1 class="indexH1" style='color:black'>Choisissez les criteres de votre recherche</H1 >
+ 
+ <label ><H1 class="indexH1">Commune:</H1 ></label>
+ <select name="commune" id="sel1" ng-model='searchInfo.commune' class="form-control" 
+ style="width:40%">
+ <option >Abobo</option></br>
+ <option >Adjamé</option></br>
+ <option >Attécoubé</option></br>
+ <option >Cocody</option></br>
+ <option >Plateau</option></br>
+ <option >Yopougon</option></br>
+ <option >Treichville</option></br>
+ <option >Koumassi</option></br>
+ <option >Marcory</option></br>
+ <option >Port-Bouet</option></br>
+ <option >Anyama/Songon/Bingerville</option></br>
+ </select></br>
+
+<H1 class="indexH1">Type</H1 >
+<label><input type="radio" name="mainType" class="form-control" value=true ng-model='searchInfo.magasin' ng-click="magasinHide()">Magasin (Achats et Vente)</label>
+<label><input type="radio" name="mainType" class="form-control" value=false ng-model='searchInfo.magasin'ng-click="beauteHide()">Salon de beauté/coiffure ou spa</label></br></br>
+
+
+
+ <!-- Si cest un magasin -->
+ <span ng-hide="magasinH">
+ <label ><H1 class="indexH1">Magasin de </H1 ></label>
+ <input type="radio" ng-model='searchInfo.specialite' class="form-control" value="Meubles">Meubles</option></br>
+ <input type="radio" ng-model='searchInfo.specialite' class="form-control" value="Vetements/Chaussures/Accessoires" ng-click="extraOptionsHide()">Vetements/Chaussures/Accessoires</option></br>
+ <input type="radio" ng-model='searchInfo.specialite' class="form-control" value="Toiletterie et beauté">Toiletterie et beauté</option></br>
+ <input type="radio" ng-model='searchInfo.specialite' class="form-control" value="Bijouterie">Bijouterie</option></br>
+ </br>
+ </span>
+
+ <!-- Extra options pour vetements!! :)) -->
+  <span ng-hide="vetExtraH">
+ <label ><H1 class="indexH1">Je veut acheter des articles pour</H1 ></label>
+ <select name="specialite2"  ng-model='searchInfo.specialite2' class="form-control" 
+ style="width:40%">
+ <option >Enfants </option></br>
+ <option >Adultes</option></br>
+ <option >Les deux</option></br>
+   </select>
+  </span></br>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Si cest un beauty shop -->
+<span ng-hide="beauteH">
+<H1 class="indexH1" >Type de soins</H1 >
+<label>Salon de coiffure<input type="radio" name="soins" class="form-control" value="Salon" ng-model='searchInfo.specialite'></label>
+<label>Spa<input type="radio" name="soins" class="form-control" value="Spa" ng-model='searchInfo.specialite'></label>
+<label>Onglerie<input type="radio" name="soins" class="form-control" value="Onglerie" ng-model='searchInfo.specialite'></label></br></br>
+</span>
+
+
+<!-- Submit button -->
+<button type="submit" ng-click="search(searchInfo)" class="indexH1 btn btn-success" 
+style="position:absolute">
+Rechercher 
+</button></br></br></br></br>
+
+
+<!-- If they would rather type the name of the place -->
+<label ><H1 class="indexH1">Ou entrez simplement le nom de l'endroit:</H1 ></label></br>
+<input type="text" ng-model="typedSearch" class="form-control" style="width:15vw;"></input></br>
+<button type="submit" ng-click="search({nom:''+typedSearch+''})" class="indexH1 btn btn-success" style="position:absolute">
+Rechercher le magasin/salon par nom
+</button>
+
+									</div></br></br>
+
+
+
+<!-- Our second column for the results -->
+   <div  class="searchResults col-sm-6 indexH1" style="margin-left:-2vw"> 
+ 	<CENTER><p style="font-family:2vw">{{message}}	</p></CENTER>
+
+
+ <div ng-repeat="mag in results" class="col-sm-12" 
+ style="background-color:white;border-top:solid;border-color:gray">
+ <img ng-src='{{mag.photoPrincipale}}'  width="30%" />
+ <a ng-click="clickedMag($index)">{{mag.nom}}</a></br>
+ 								<p>{{mag.description}}</p></br>
+ 								<p>{{mag.commune}}</p></br>
+ 								</br></br></br></br>
+ 								</div>
+
+   </div>
+
+
+</div>
+
+
+
+</div>
+
