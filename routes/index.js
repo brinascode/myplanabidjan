@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 //My database modules
-var mongo = require("mongodb")
 var mongoose = require("mongoose")
 var db = mongoose.connect("mongodb://sabrinakoumoin:Abidjan24@ds035633.mlab.com:35633/myplan")
 var MongoClient = mongo.MongoClient
