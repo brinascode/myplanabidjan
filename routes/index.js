@@ -4,7 +4,7 @@ var router = express.Router();
 var mongodb = require("mongodb")
 var mongoose = require("mongoose")
 var db = mongoose.connect("mongodb://sabrinakoumoin:Abidjan24@ds035633.mlab.com:35633/myplan")
-var MongoClient = mongo.MongoClient
+var MongoClient = mongodb.MongoClient
 var ObjectId = mongo.ObjectId
 var assert = require("assert")
 
