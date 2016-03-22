@@ -3,7 +3,7 @@ var router = express.Router();
 //My database modules
 var mongodb = require("mongodb")
 var mongoose = require("mongoose")
-var db = mongoose.connect("mongodb://sabrinakoumoin:Abidjan24@ds035633.mlab.com:35633/myplan")
+var db = mongoose.connect("mongodb://sabrinakoumoin:Abidjan24@ds021689.mlab.com:21689/heroku_wgpp3066")
 var MongoClient = mongodb.MongoClient
 var ObjectId = mongodb.ObjectId
 var assert = require("assert")
