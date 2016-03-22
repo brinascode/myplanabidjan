@@ -16,11 +16,9 @@ $scope.hi = $location.absUrl()
 $scope.search = function(searchInfo){
    
     $http.post("/findRestaurant",searchInfo).success(function(data){
-	if(data.length ==0){
-		$scope.message="Pas de résultats pour ces criteres. Réessayez ou vérifiez que vous avez bien écrit le nom du magasin"}
-	 else{
-			$scope.message= "Miam! Bon appetit!"
-		}
+	
+	$scope.message= "Miam! Bon appetit!"
+		
 	 $scope.restaurants = data
 
 //We must make the searchInfo empty again and ready for new searches

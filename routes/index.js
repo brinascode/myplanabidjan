@@ -24,7 +24,7 @@ router.post("/findRestaurant",function(req,res){
 Restaurant.find(req.body,"nom commune cuisine photoPrincipale prix",function(err,data){
 	if(err) throw err
 		res.json(data)
-	    console.log(data)
+	 
 })
 })
 
