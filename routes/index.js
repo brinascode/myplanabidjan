@@ -16,16 +16,6 @@ var Avis = require("../Schemas/Avis")
 
 //******************************************** Restaurants *****************************************
 
-Restaurant.findOneAndRemove({_id:"5688f6fec8673d52a0273057"}, function(err) {
-  if (err) throw err;
-
-  // we have deleted the user
-  console.log('User deleted!');
-});
-
-
-
-
 //Sending back the restaurant list
 router.post("/findRestaurant",function(req,res){
 //In the find method of the Restaurant model, the second param is to limit the num of properties we get for 
