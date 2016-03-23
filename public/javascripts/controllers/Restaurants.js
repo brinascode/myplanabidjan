@@ -16,7 +16,11 @@ $scope.hi = $location.absUrl()
 $scope.search = function(searchInfo){
 
     $http.post("/findRestaurant",searchInfo).success(function(data){
-	if(data[0]){$scope.message = "Miam, bon appetit!" }else{$scope.message = "Pas de résultats pour ces critères"}
+	if(data.length ===0){
+		$scope.message="Pas de résultats pour ces criteres. Réessayez ou vérifiez que vous avez bien écrit le nom du magasin"}
+	 else{
+			$scope.message= "Miam! Bon appetit!"
+		}
 
 	$scope.restaurants = data  
 
@@ -30,7 +34,5 @@ $scope.search = function(searchInfo){
 $scope.clickedRestau = function(index){
 $window.location.href = "/plan/"+$scope.restaurants[index]._id
 }
-
-
 
 }])
