@@ -22,9 +22,9 @@ console.log("hey")
 //In the find method of the Restaurant model, the second param is to limit the num of properties we get for 
 //each object
 Restaurant.find(req.body,function(err,found){
-	if (!err) {
+	if (err) throw err
 	res.json(found)
-	}else{throw err;}
+
 	 
 })
 })

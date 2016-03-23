@@ -6,10 +6,32 @@
 
 <div class="row" style="background-color:white"> 
 
+
+<!-- Our second column for the results -->
+   <div  class="searchResults indexH1 " style="margin-left:1.5vw"> 
+ 	<CENTER><p style="font-family:2vw">{{message}}	</p></CENTER>
+
+
+ <div ng-repeat="restaurant in restaurants" class="col-sm-12" 
+ style="background-color:white;border-top:solid;border-color:gray">
+ <img ng-src='{{restaurant.photoPrincipale}}'  width="30%" style="width:200px"/>
+<b><a ng-click="clickedRestau($index)">{{restaurant.nom}}</a></b></br>
+ 									<i style="font-size:20px">{{restaurant.description}}</i></br>
+ 									<i style="font-size:20px">{{restaurant.commune}}</i>
+ 									<i style="font-size:20px">{{restaurant.adresse}}</i></br>
+ </br>
+ </div>
+
+   </div>
+ </br>
+ </br> 
+</br>
+</br>
+
 					<!-- Our first column for the search -->
-			<div class="col-sm-6 form-group " style="margin-left:1.5vw"> 
+			<center><div class=" " style="margin-left:1.5vw"> 
  
- <h1 class="indexH1" style='color:black'>Choisissez les criteres de votre recherche</H1 >
+ <h1 class="indexH1" style='color:black'>Choisissez les critères de votre recherche</H1 >
  
  <label ><H1 class="indexH1">Commune:</H1 ></label>
  <select name="restaurants" id="sel1" ng-model='searchInfo.commune' class="form-control" 
@@ -56,7 +78,7 @@
 
 <!-- Submit button -->
 <button type="submit" ng-click="search(searchInfo)" class="indexH1 btn btn-warning" 
-style="position:absolute">
+style="position:relative">
 Vite, j'ai super faim!
 </button></br></br></br></br>
 
@@ -64,30 +86,15 @@ Vite, j'ai super faim!
 <!-- If they would rather type the name of the place -->
 <label ><H1 class="indexH1">Ou entrez simplement le nom de l'endroit:</H1 ></label></br>
 <input type="text" ng-model="typedSearch" class="form-control" style="width:15vw;"></input></br>
-<button type="submit" ng-click="search({nom:''+typedSearch+''})" class="indexH1 btn btn-warning" style="position:absolute">
+<button type="submit" ng-click="search({nom:''+typedSearch+''})" class="indexH1 btn btn-warning" style="position:relative">
 Rechercher le restaurant par nom
 </button>
 
-									</div></br></br>
+									</div></br></br></center>
 
 
 
-<!-- Our second column for the results -->
-   <div  class="searchResults col-sm-6 indexH1 " style="margin-left:-2vw"> 
- 	<CENTER><p style="font-family:2vw">{{message}}	</p></CENTER>
 
-
- <div ng-repeat="restaurant in restaurants" class="col-sm-12" 
- style="background-color:white;border-top:solid;border-color:gray">
- <img ng-src='{{restaurant.photoPrincipale}}'  width="30%" style="width:200px"/>
-<b><a ng-click="clickedRestau($index)">{{restaurant.nom}}</a></b></br>
- 									<i style="font-size:20px">{{restaurant.description}}</i></br>
- 									<i style="font-size:20px">{{restaurant.commune}}</i>
- 									<i style="font-size:20px">{{restaurant.adresse}}</i></br>
- </br>
- </div>
-
-   </div>
 
 
 </div>
