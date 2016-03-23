@@ -10,9 +10,9 @@ var assert = require("assert")
 
 
 //Getting our different mongoose models 
-var Restaurant = require("../Schemas/Restaurants-Schema.js")
-var Magasin = require("../Schemas/Magasin.js")
-var Avis = require("../Schemas/Avis.js")
+var Restaurant = require("Restaurants-Schema")
+var Magasin = require("Schemas/Magasin")
+var Avis = require("Schemas/Avis")
 
 //******************************************** Restaurants *****************************************
 
