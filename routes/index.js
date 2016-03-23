@@ -24,6 +24,7 @@ console.log("hey bae")
 Restaurant.find({},function(err,data){
 	if(err) throw err
 		res.json(data)
+	console.log(data)
 	 
 })
 })
