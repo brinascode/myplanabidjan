@@ -16,7 +16,7 @@ $scope.hi = $location.absUrl()
 $scope.search = function(searchInfo){
 
     $http.post("/findRestaurant",searchInfo).success(function(data){
-	$scope.restaurants = data
+	$scope.message= "hELLO"
 
 //We must make the searchInfo empty again and ready for new searches
 	$scope.searchInfo = {}
