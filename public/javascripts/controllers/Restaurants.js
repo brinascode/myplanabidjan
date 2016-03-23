@@ -17,7 +17,7 @@ $scope.search = function(searchInfo){
 
     $http.post("/findRestaurant",searchInfo).success(function(data){
 	$scope.restaurants = data
-
+$scope.message = "Heyyyaaa"
 //We must make the searchInfo empty again and ready for new searches
 	$scope.searchInfo = {}
 }).error(function(data){console.log(data)})}
