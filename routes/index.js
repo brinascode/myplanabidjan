@@ -24,7 +24,6 @@ console.log("hey")
 Restaurants.find(req.body,function(err,found){
 	if (!err) {
 	res.json(found)
-	console.log(found)
 	}else{throw err;}
 	 
 })
