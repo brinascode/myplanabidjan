@@ -17,7 +17,7 @@ var Avis = require("Avis")
 //******************************************** Restaurants *****************************************
 
 //Sending back the restaurant list
-router.post("/findRestaurant",function(req,res){
+router.get("/findRestaurant",function(req,res){
 console.log("hey")
 //In the find method of the Restaurant model, the second param is to limit the num of properties we get for 
 //each object
