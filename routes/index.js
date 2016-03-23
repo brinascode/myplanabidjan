@@ -18,7 +18,7 @@ var Avis = require("../Schemas/Avis")
 
 //Sending back the restaurant list
 router.post("/findRestaurant",function(req,res){
-	console.log(req.body)
+
 //In the find method of the Restaurant model, the second param is to limit the num of properties we get for 
 //each object
 Restaurant.find(req.body,"nom commune cuisine photoPrincipale prix",function(err,data){
@@ -100,6 +100,7 @@ router.get('/plan/:_id', function(req, res, next) {
 
 /* GET home page. */
 router.get('*', function(req, res, next) {
+
   res.sendFile("index.html",{root:"views"});
 
 })

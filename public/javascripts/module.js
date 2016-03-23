@@ -1,3 +1,4 @@
+//We make an app and store it in the var app
 var app = angular.module("MyPlanAbidjan",["ngRoute"]);
 
 app.config(function($routeProvider,$locationProvider){

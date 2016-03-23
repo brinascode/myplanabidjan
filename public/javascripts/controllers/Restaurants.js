@@ -14,10 +14,10 @@ $scope.hi = $location.absUrl()
 
 //This is our service to hit the Node Api which finds the restaurant that matches our criteria
 $scope.search = function(searchInfo){
-   
+    $scope.message= "Recherche en cours"
     $http.post("/findRestaurant",searchInfo).success(function(data){
 	
-	$scope.message= "Miam! Bon appetit!"
+	
 		
 	 $scope.restaurants = data
 
