@@ -10,7 +10,7 @@ var assert = require("assert")
 
 
 //Getting our different mongoose models 
-var Restaurant = require("Restaurants-Schema")
+var Restaurants = require("Restaurants-Schema")
 var Magasin = require("Magasin")
 var Avis = require("Avis")
 
@@ -21,7 +21,7 @@ router.post("/findRestaurant",function(req,res){
 console.log("hey")
 //In the find method of the Restaurant model, the second param is to limit the num of properties we get for 
 //each object
-Restaurant.find({},function(err,found){
+Restaurants.find({},function(err,found){
 	if (err) throw err;
 	res.json(found)
 	console.log(found)
