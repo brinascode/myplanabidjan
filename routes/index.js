@@ -21,9 +21,10 @@ router.post("/findRestaurant",function(req,res){
 console.log("hey")
 //In the find method of the Restaurant model, the second param is to limit the num of properties we get for 
 //each object
-Restaurant.find({},function(err,data){
-		res.json(data)
-	console.log(data)
+Restaurant.find({},function(err,found){
+	if (err) throw err;
+	res.json(found)
+	console.log(found)
 	 
 })
 })
