@@ -4,10 +4,10 @@
 <head>
 	<title>My Plan Abidjan!</title>
 
-    <meta content="text/html; charset=UTF-8" />
-	
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no  text/html; charset=UTF-8">
 <!-- This is needed for angular ui -->
-<link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+
 <script src="javascripts/angular.min.js"></script>
 <script src="javascripts/angular-route.min.js"></script>
 
@@ -19,9 +19,14 @@
 <script src="javascripts/controllers/Restaurants.js"></script>
 <script src="javascripts/controllers/Magasins.js"></script>
 <script src="javascripts/controllers/Funs.js"></script>
+<script src="javascripts/controllers/MainController.js"></script>
 
+<!-- load fontawesome -->
+<link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+<link rel="stylesheet" href="font-awesome.min.css"> 
 
-
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
 <base href="/">
 
 
@@ -60,13 +65,16 @@ font-family:Sitka;
 </style>
 </head>
 
-<body ng-app="MyPlanAbidjan">
+<body ng-app="MyPlanAbidjan" >
 
-<div >
-<div style="background-color:#353131;width:100%;height:15%;" class="">	
+<div ng-controller="MainController" class="container">
+<nav style="background-color:#353131;width:100%;height:15%;" class="">	
 	<!-- Our logo pic -->
 <img src="/images/logo2.png" style="position:block;margin-top:-4.5vw;margin-left:0.5vw" width="30%"/>
-</div>	
+<a style="position:block;margin-top:-7vw;margin-left:35vw" ng-click="login()" class="btn btn-default"><span class="fa fa-user"></span> Local Login</a>
+<a style="position:block;margin-top:-7vw;margin-left:2vw" ng-click="signup()" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a>
+<a style="position:block;margin-top:-7vw;margin-left:2vw" ng-click="facebooklogin()" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
+</nav>	
 
 
 	</br>	</br></br>
@@ -85,8 +93,7 @@ style="background-image:url('../images/food2e.png');" >
 <div class="col-sm-4 opac indexBox " 
 style="background-image:url('../images/shopIcon.png');
 background-size:30%;">
-<center><h1 class="indexH1">Shopping</h1></center></div>
-</a</a>
+<center><h1 class="indexH1">Shopping</h1></center></div></a>
 
 <a href="fun">
 <div class="col-sm-4 opac indexBox " 

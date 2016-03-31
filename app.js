@@ -4,15 +4,18 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+// required for passport
+var passport = require("passport");
+var session  = require('express-session');
+var flash    = require('connect-flash');
 
 //Added to express generator 
 var morgan  = require("morgan")
 var methodOverride = require("method-override")
+
 //Database modules________Added to express generator 
 var mongo = require("mongodb")
 var mongoose = require("mongoose")
-
-
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -21,8 +24,7 @@ var app = express();
 
 //view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-
+app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
@@ -37,6 +39,12 @@ app.use(methodOverride());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 app.use(morgan("dev"));
 
+//Passport
+app.use(session({ secret: 'sabrinayes' })); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
+require('./config/passport')(passport); // pass passport for configuration
 
 app.use('/', routes);
 app.use('/users', users);

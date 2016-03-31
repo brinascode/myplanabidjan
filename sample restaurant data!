@@ -1,0 +1,26 @@
+sample restaurant data!
+
+var restaurantSchema = Restaurant({
+
+topmenu:String,
+espace:Boolean,
+commune:"Cocody",
+specialite:"Asiatique",
+prix:{bas:1000,haut:50000},
+rating:Object,
+nom:"Erin's Shop",
+adresse:"06 BP 849 Abidjan 06",
+heures:"08h - 19h",
+telephone:47298871,
+siteweb:"www.erinshop.com",
+photoPrincipale:"",
+autresPhotos:[],
+hashTag:"#foodie",
+position:Array,//Lat and Long
+description:"The best restaurant in Abidjan",
+description2:"Come here and eat"
+})
+
+restaurantSchema.save(function(err){
+	if(err) throw err
+})

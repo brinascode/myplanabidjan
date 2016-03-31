@@ -1,4 +1,4 @@
-app.controller("MainController",["$scope","$http","$location",function($scope,$http,$location){
+app.controller("MainController",["$scope","$http","$location","$window",function($scope,$http,$location,$window){
 $scope.id = window.location.pathname.split("/")
 
 $scope.rating
@@ -38,7 +38,10 @@ $http.post("/takeAvis",{discussionId:$scope.id[2]}).success(function(data){
 
 
 
-
+//For login and signup
+$scope.login = function(){$window.location.href = "/login"}  
+$scope.signup = function(){$window.location.href = "/signup"} 
+$scope.facebooklogin = function(){$window.location.href = "/auth/facebook"}
 
 
 }])
