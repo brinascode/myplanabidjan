@@ -24,3 +24,5 @@ description2:"Come here and eat"
 restaurantSchema.save(function(err){
 	if(err) throw err
 })
+
+"mongodb://sabrinakoumoin:Abidjan24@ds035633.mlab.com:35633/myplan"

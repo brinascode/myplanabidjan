@@ -26,7 +26,8 @@ var userSchema = mongoose.Schema({
         token        : String,
         email        : String,
         name         : String
-    }
+    },
+    avis:[{discussionId:String,avis:String}]
 
 });
 

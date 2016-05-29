@@ -3,7 +3,9 @@ var router = express.Router();
 //My database modules
 var mongodb = require("mongodb")
 var mongoose = require("mongoose")
-var db = mongoose.connect("mongodb://sabrinakoumoin:Abidjan24@ds035633.mlab.com:35633/myplan") //Change before deploy
+var db = mongoose.connect("mongodb://sabrinakoumoin:Abidjan24@ds035633.mlab.com:35633/myplan") 
+
+//Change before deploy//mongoose.connect("mongodb://127.0.0.1/27017/myplan")
 var MongoClient = mongodb.MongoClient
 var ObjectId = mongodb.ObjectId
 var assert = require("assert")
@@ -20,13 +22,11 @@ require('../config/passport')(passport); // pass passport for configuration
 
 //******************************************** Restaurants *****************************************
 
-
-
 //Sending back the restaurant list
 router.post("/findRestaurant",function(req,res){
 
 //In the find method of the Restaurant model, the second param is to limit the num of properties we get for 
-//each object== here i took it off though
+
 Restaurant.find(req.body,function(err,found){
 	if (err) throw err
 		console.log(found)
@@ -34,7 +34,6 @@ Restaurant.find(req.body,function(err,found){
 	 
 })
 })
-
 
 //************************************* Magasins *************************
 
@@ -44,10 +43,15 @@ Magasin.find(req.body,function(err,data){
 		res.json(data)
 })
 })
-//************************************ For when you click on a place
+//**************************** For when you click on a place***********************
 
-//Getting the clicked place from its id in the Main Controller
+//First we get plan file opened. It then does a post request to get all the details of the clicked plan
 //We first search the restau. collection, if the id isnt from there, we search the magasin collection
+
+router.get('/plan/:_id', function(req, res, next) {
+ res.sendFile("plan.html",{root:"views"})
+})
+
 router.post("/clickedPlan",function(req,res){
 Restaurant.find(req.body,function(err,data){
 	if (err) throw err
@@ -60,23 +64,27 @@ Restaurant.find(req.body,function(err,data){
 })
 })
 
-router.get('/plan/:_id', function(req, res, next) {
- res.sendFile("plan.html",{root:"public/views"})
-
-})
-
-
-//**********************************Comments**********************
+//******************************Avis or Comments**********************
 router.post("/submitAvis",function(req,res){
+  User.findById(req.user.id,function(err,user){
+    if(err) throw err
+    user.avis.push({discussionId:req.discussionId,avis:req.body})
+    user.save(function(err){if (err) throw err})
+   })
+
 
 var newAvis = new Avis(req.body)
-newAvis.save(function(err,data){
+    newAvis.save(function(err,data){
 	if(err) throw err
-		Avis.find({discussionId:req.body.discussionId},function(err,data){
-	if(err) throw err
-		res.json(data)
-})
-})
+
+
+   Avis.find({discussionId:req.body.discussionId},function(err,data){
+    if(err) throw err
+    res.json(data) 
+            })
+            })
+
+
 })
 
 //Pour prendre la liste des avis
@@ -149,9 +157,11 @@ router.post("/takeAvis",function(req,res){
     // we will want this protected so you have to be logged in to visit
     // we will use route middleware to verify this (the isLoggedIn function)
     router.get('/profile', isLoggedIn, function(req, res) {
-        res.render('profile.ejs', {
-            user : req.user // get the user out of session and pass to template
-        });
+        res.sendFile("profile.html",{root:"views"})
+    });
+
+    router.get('/profileinfo', isLoggedIn, function(req, res) {
+        res.json(req.user)
     });
 
     // =====================================
