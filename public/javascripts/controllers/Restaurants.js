@@ -1,6 +1,26 @@
 app.controller("Restaurants",["$scope","$http","$location","$window",
 	function($scope,$http,$location,$window){
 
+
+//For my directive practise
+$scope.title= "To do"
+$scope.text = "A lot of stuff :=)"
+$scope.expanders = [
+{title:"Hola",text:"Anmiga"},
+{title:"Hello",text:"Friend"},
+{title:"Coucou",text:"Copineee"}
+
+]
+
+$scope.checkProperties = [
+"nice","great"
+]
+
+
+
+
+
+
 $scope.searchInfo={}
 $scope.restaurants = []
 $scope.typedSearch  //For the typed searches
@@ -34,5 +54,6 @@ $scope.search = function(searchInfo){
 $scope.clickedRestau = function(index){
 $window.location.href = "/plan/"+$scope.restaurants[index]._id
 }
+
 
 }])

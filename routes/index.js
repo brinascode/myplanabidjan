@@ -3,9 +3,11 @@ var router = express.Router();
 //My database modules
 var mongodb = require("mongodb")
 var mongoose = require("mongoose")
-var db = mongoose.connect("mongodb://sabrinakoumoin:Abidjan24@ds035633.mlab.com:35633/myplan") 
 
-//Change before deploy//mongoose.connect("mongodb://127.0.0.1/27017/myplan")
+//var db = mongoose.connect("mongodb://sabrinakoumoin:Abidjan24@ds035633.mlab.com:35633/myplan") 
+
+//Change before deploy//
+mongoose.connect("mongodb://sabrinakoumoin:Abidjan24@ds035633.mlab.com:35633/myplan")
 var MongoClient = mongodb.MongoClient
 var ObjectId = mongodb.ObjectId
 var assert = require("assert")

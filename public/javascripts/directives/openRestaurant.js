@@ -3,7 +3,7 @@ app.directive("openRestaurant",function(){
 return{
 restrict:"E",
 scope:true,
-templateUrl:"./views/openRestaurant.html"
+templateUrl:""
 }
 
 
